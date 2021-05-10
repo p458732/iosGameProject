@@ -84,7 +84,7 @@ class JDPaddle:SKSpriteNode
         super.init(texture: nil, color: UIColor.clear, size: paddleSize)
         self.zPosition = 1
         self.isUserInteractionEnabled = true
-        self.position = CGPoint(x: size.width * 0.5 , y: size.height * 0.5 )
+        self.position = CGPoint(x: 0, y: size.height * 0.5 )
         self.addChild(PaddleBorder!)
         self.addChild(MovingPing!)
         

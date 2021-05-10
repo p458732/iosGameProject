@@ -17,6 +17,7 @@
 		3861203626426B30003BDCF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3861203426426B30003BDCF8 /* Main.storyboard */; };
 		3861203826426B31003BDCF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3861203726426B31003BDCF8 /* Assets.xcassets */; };
 		3861203B26426B31003BDCF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3861203926426B31003BDCF8 /* LaunchScreen.storyboard */; };
+		485E7D07264903DE006123DD /* MyTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 485E7D06264903DE006123DD /* MyTileSet.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		3861203726426B31003BDCF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3861203A26426B31003BDCF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3861203C26426B31003BDCF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		485E7D06264903DE006123DD /* MyTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyTileSet.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				3861203C26426B31003BDCF8 /* Info.plist */,
 				380CB39926451E98004088B7 /* Player.swift */,
 				380CB397264511C9004088B7 /* JDGamePaddle.swift */,
+				485E7D06264903DE006123DD /* MyTileSet.sks */,
 			);
 			path = pj;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				485E7D07264903DE006123DD /* MyTileSet.sks in Resources */,
 				3861203626426B30003BDCF8 /* Main.storyboard in Resources */,
 				3861202D26426B30003BDCF8 /* GameScene.sks in Resources */,
 				3861203826426B31003BDCF8 /* Assets.xcassets in Resources */,

@@ -11,7 +11,7 @@ import SpriteKit
 
 class Player {
     //let Player: SKSpriteNode!
-    let test = SKShapeNode(circleOfRadius: 35)
+    let test = SKShapeNode(circleOfRadius: 8)
     init(forScene scene:SKScene){
         test.strokeColor = SKColor.purple
         test.fillColor = SKColor.white
@@ -22,7 +22,10 @@ class Player {
     }
     func moveBy(vector: CGVector){
         let moveAction = SKAction.move(by: vector, duration: 0.03)
+        print (self.test.position)
         self.test.run(moveAction)
     }
-    
+    func getPOS()->CGPoint{
+    return test.position
+    }
 }
