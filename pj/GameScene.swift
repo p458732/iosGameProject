@@ -12,7 +12,7 @@ import GameplayKit
 class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate{
     var background: SKTileMapNode! //背景瓦片地图节点
     var paddle:JDGamePaddle!
-    var player: Player!
+    var player :Player!
     var cameraNode: SKCameraNode!
     var playerVector =  CGVector(dx: 0, dy: 0)
     var tileMap: SKTileMapNode? = SKTileMapNode()
@@ -117,7 +117,7 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate{
                                 tileNode.alpha = 0
                                 tileNode.physicsBody?.affectedByGravity = false
 
-                                print(tileNode.physicsBody)
+                               // print(tileNode.physicsBody)
                                 tileMap.addChild(tileNode)
                             }
                         }
@@ -132,11 +132,12 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate{
     func createScene() {
         paddle = JDGamePaddle(forScene: self, size:CGSize(width: 30, height: 30), position: CGPoint(x: 8, y: 8))
         paddle.delegate = self
-        player = Player(forScene: self)
+        player = Player()
         cameraNode = SKCameraNode()
         let cameraNode = SKCameraNode()
         cameraNode.position = CGPoint(x: 0, y:0)
         cameraNode.name = "camara"
+        addChild(player)
         addChild(cameraNode)
         camera = cameraNode
         let zoomInAction = SKAction.scale(to: 0.27, duration: 0)
@@ -144,7 +145,7 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate{
         cameraNode.run(zoomInAction)
         // cameraNode.run(moveAction)
         paddle.paddle.setPos(pos: CGPoint(x: player.getPOS().x - 60 , y: player.getPOS().y - 20) )
-        self.player.moveBy(vector: playerVector)
+        player.moveBy(vector: playerVector)
         
     }
     

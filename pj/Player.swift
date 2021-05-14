@@ -9,15 +9,27 @@
 import Foundation
 import SpriteKit
 
-class Player {
+class Player: SKSpriteNode {
     //let Player: SKSpriteNode!
     let test = SKShapeNode(circleOfRadius: 8)
-    init(forScene scene:SKScene){
+    let textureAtlas = SKTextureAtlas(named: "slime move_blob.atlas")
+    var txtureFrames = [SKTexture]()
+    override init(texture:SKTexture?, color:SKColor, size: CGSize){
+        let texture = SKTexture(imageNamed: "slime move_blob_00.png")
+        super.init(texture:texture, color:SKColor.clear, size: texture.size())
+        
+        var tempName: String
+        for i in 0 ... 5 {
+            tempName = String(format: "slime move_blob_%.2d",i)
+            print(tempName)
+            let dbTexture = textureAtlas.textureNamed(tempName)
+            txtureFrames.append(dbTexture)
+        }
+        
         test.strokeColor = SKColor.purple
         test.fillColor = SKColor.white
         test.alpha = 1
         test.name = "test"
-        test.position = CGPoint(x: scene.frame.midX, y: scene.frame.midY)
         
         test.setScale(CGFloat(0.3))
         test.physicsBody = SKPhysicsBody(circleOfRadius: 4)
@@ -27,7 +39,15 @@ class Player {
         test.physicsBody?.usesPreciseCollisionDetection = true
         test.physicsBody?.affectedByGravity = false
         //test.physicsBody?.isDynamic = false
-        scene.addChild(test)
+        showAtlas()
+       
+    }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init has not been implemented")
+    }
+    
+    func showAtlas(){
+        self.run(SKAction.repeatForever(SKAction.animate(with: txtureFrames, timePerFrame: 0.2)) )
     }
     func moveBy(vector: CGVector){
         let moveAction = SKAction.move(by: vector, duration: 0.02)

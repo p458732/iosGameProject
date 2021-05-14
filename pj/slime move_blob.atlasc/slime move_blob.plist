@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>codeandweb</key>
+        <dict>
+            <key>generator</key>
+            <string>TexturePacker 5.5.0 - https://www.codeandweb.com/texturepacker</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:eb293f79af07351a3b23e140edda36e1:86d7d3de7a742927413a32072db1ca8e:9ce4237f9eaa729e64f2344814612576$</string>
+        </dict>
+        <key>format</key>
+        <string>APPL</string>
+        <key>images</key>
+        <array>
+            <dict>
+                <key>path</key>
+                <string>slime move_blob.1.png</string>
+                <key>size</key>
+                <string>{112,17}</string>
+                <key>subimages</key>
+                <array>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>slime move_blob_05.png</string>
+                        <key>spriteOffset</key>
+                        <string>{12,10}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{40,40}</string>
+                        <key>textureRect</key>
+                        <string>{{1,1},{17,13}}</string>
+                        <key>textureRotated</key>
+                        <true/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>slime move_blob_01.png</string>
+                        <key>spriteOffset</key>
+                        <string>{10,11}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{40,40}</string>
+                        <key>textureRect</key>
+                        <string>{{20,1},{17,14}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>slime move_blob_02.png</string>
+                        <key>spriteOffset</key>
+                        <string>{9,11}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{40,40}</string>
+                        <key>textureRect</key>
+                        <string>{{39,1},{19,14}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>slime move_blob_03.png</string>
+                        <key>spriteOffset</key>
+                        <string>{10,11}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{40,40}</string>
+                        <key>textureRect</key>
+                        <string>{{60,1},{17,14}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>slime move_blob_00.png</string>
+                        <key>spriteOffset</key>
+                        <string>{11,11}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{40,40}</string>
+                        <key>textureRect</key>
+                        <string>{{79,1},{15,15}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                    <dict>
+                        <key>aliases</key>
+                        <array/>
+                        <key>isFullyOpaque</key>
+                        <false/>
+                        <key>name</key>
+                        <string>slime move_blob_04.png</string>
+                        <key>spriteOffset</key>
+                        <string>{11,11}</string>
+                        <key>spriteSourceSize</key>
+                        <string>{40,40}</string>
+                        <key>textureRect</key>
+                        <string>{{96,1},{15,15}}</string>
+                        <key>textureRotated</key>
+                        <false/>
+                    </dict>
+                </array>
+            </dict>
+        </array>
+        <key>version</key>
+        <integer>1</integer>
+    </dict>
+</plist>
