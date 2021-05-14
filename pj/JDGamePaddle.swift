@@ -89,6 +89,9 @@ class JDPaddle:SKSpriteNode
         self.addChild(MovingPing!)
         
     }
+    func setPos(pos:CGPoint){
+        self.run(SKAction.move(to: pos, duration: 0.06))
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
