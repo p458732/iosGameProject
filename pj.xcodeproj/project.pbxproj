@@ -17,9 +17,8 @@
 		3861203626426B30003BDCF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3861203426426B30003BDCF8 /* Main.storyboard */; };
 		3861203826426B31003BDCF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3861203726426B31003BDCF8 /* Assets.xcassets */; };
 		3861203B26426B31003BDCF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3861203926426B31003BDCF8 /* LaunchScreen.storyboard */; };
-		485B34D9264E6120001D3988 /* slime move_blob.plist in Resources */ = {isa = PBXBuildFile; fileRef = 485B34D7264E6120001D3988 /* slime move_blob.plist */; };
-		485B34DA264E6120001D3988 /* slime move_blob.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 485B34D8264E6120001D3988 /* slime move_blob.1.png */; };
 		485E7D07264903DE006123DD /* MyTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 485E7D06264903DE006123DD /* MyTileSet.sks */; };
+		486716CC265229A700F0D3C3 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486716CB265229A700F0D3C3 /* Enemy.swift */; };
 		48A32F40264B89830014F81A /* physicalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A32F3F264B89830014F81A /* physicalConstants.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,9 +35,8 @@
 		3861203726426B31003BDCF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3861203A26426B31003BDCF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3861203C26426B31003BDCF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		485B34D7264E6120001D3988 /* slime move_blob.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "slime move_blob.plist"; sourceTree = "<group>"; };
-		485B34D8264E6120001D3988 /* slime move_blob.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slime move_blob.1.png"; sourceTree = "<group>"; };
 		485E7D06264903DE006123DD /* MyTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyTileSet.sks; sourceTree = "<group>"; };
+		486716CB265229A700F0D3C3 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		48A32F3F264B89830014F81A /* physicalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = physicalConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,7 +70,6 @@
 		3861202926426B30003BDCF8 /* pj */ = {
 			isa = PBXGroup;
 			children = (
-				485B34D6264E6120001D3988 /* slime move_blob.atlasc */,
 				3861202A26426B30003BDCF8 /* AppDelegate.swift */,
 				3861202C26426B30003BDCF8 /* GameScene.sks */,
 				3861202E26426B30003BDCF8 /* Actions.sks */,
@@ -86,17 +83,9 @@
 				380CB397264511C9004088B7 /* JDGamePaddle.swift */,
 				485E7D06264903DE006123DD /* MyTileSet.sks */,
 				48A32F3F264B89830014F81A /* physicalConstants.swift */,
+				486716CB265229A700F0D3C3 /* Enemy.swift */,
 			);
 			path = pj;
-			sourceTree = "<group>";
-		};
-		485B34D6264E6120001D3988 /* slime move_blob.atlasc */ = {
-			isa = PBXGroup;
-			children = (
-				485B34D7264E6120001D3988 /* slime move_blob.plist */,
-				485B34D8264E6120001D3988 /* slime move_blob.1.png */,
-			);
-			path = "slime move_blob.atlasc";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,8 +152,6 @@
 				3861203826426B31003BDCF8 /* Assets.xcassets in Resources */,
 				3861203B26426B31003BDCF8 /* LaunchScreen.storyboard in Resources */,
 				3861202F26426B30003BDCF8 /* Actions.sks in Resources */,
-				485B34DA264E6120001D3988 /* slime move_blob.1.png in Resources */,
-				485B34D9264E6120001D3988 /* slime move_blob.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +164,7 @@
 			files = (
 				3861203126426B30003BDCF8 /* GameScene.swift in Sources */,
 				48A32F40264B89830014F81A /* physicalConstants.swift in Sources */,
+				486716CC265229A700F0D3C3 /* Enemy.swift in Sources */,
 				3861203326426B30003BDCF8 /* GameViewController.swift in Sources */,
 				3861202B26426B30003BDCF8 /* AppDelegate.swift in Sources */,
 				380CB39A26451E98004088B7 /* Player.swift in Sources */,
