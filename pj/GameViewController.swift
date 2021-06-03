@@ -11,13 +11,13 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
-    
+    	
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let view = self.view as! SKView? {
-            if let scene = SKScene(fileNamed: "GameScene"){
-                
+            if let scene = SKScene(fileNamed: "StartScene"){
+            //if let scene = SKScene(fileNamed: "StartScene"){
         
             // Load the SKScene from 'GameScene.sks'
              //let scene = GameScene(size: view.bounds.size)

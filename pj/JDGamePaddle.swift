@@ -44,7 +44,7 @@ class JDGamePaddle
     {
         rootskview = view
         paddle = JDPaddle(size: size)
-        
+        paddle.zPosition = 50
         let scene:SKScene = SKScene(size: size)
         scene.backgroundColor = UIColor.white
         scene.isUserInteractionEnabled = true
@@ -82,7 +82,7 @@ class JDPaddle:SKSpriteNode
         PaddleBorder?.fillColor = UIColor.clear
         PaddleBorder?.strokeColor = UIColor.black
         super.init(texture: nil, color: UIColor.clear, size: paddleSize)
-        self.zPosition = 1
+        self.zPosition = 56
         self.isUserInteractionEnabled = true
         self.position = CGPoint(x: 0, y: size.height * 0.5 )
         self.addChild(PaddleBorder!)

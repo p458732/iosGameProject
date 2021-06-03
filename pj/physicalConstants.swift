@@ -7,5 +7,10 @@
 //
 
 import Foundation
-let playerCollisionMask = 1
-let wallCollisionMask = 2
+let playerCollisionMask = UInt32(0x1 << 1)
+let wallCollisionMask = UInt32(0x1 << 2)
+let bulletCollisionMask = UInt32(0x1 << 3)
+let enemyCollisionMask = UInt32(0x1 << 4)
+let puddleCollisionMask = UInt32(0x1 << 5)
+let starPlayerCollisionMask = UInt32(0x1 << 6)
+let teleportCollisionMask = UInt32(0x1 << 7)

@@ -19,6 +19,14 @@
 		3861203B26426B31003BDCF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3861203926426B31003BDCF8 /* LaunchScreen.storyboard */; };
 		485E7D07264903DE006123DD /* MyTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 485E7D06264903DE006123DD /* MyTileSet.sks */; };
 		486716CC265229A700F0D3C3 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486716CB265229A700F0D3C3 /* Enemy.swift */; };
+		487B9526265E1B7900A238E7 /* skillUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B9525265E1B7900A238E7 /* skillUI.swift */; };
+		487B952C265FBD2300A238E7 /* StartScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 487B952B265FBD2300A238E7 /* StartScene.sks */; };
+		487B952E265FC69400A238E7 /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B952D265FC69400A238E7 /* StartScene.swift */; };
+		487B95302663D48B00A238E7 /* Boss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B952F2663D48B00A238E7 /* Boss.swift */; };
+		487B95322664F16700A238E7 /* EndScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 487B95312664F16700A238E7 /* EndScene.sks */; };
+		487B95342664F17800A238E7 /* EndScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B95332664F17800A238E7 /* EndScene.swift */; };
+		487B95362664FFE900A238E7 /* WinScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487B95352664FFE900A238E7 /* WinScene.swift */; };
+		487B95382665002F00A238E7 /* WinScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 487B95372665002F00A238E7 /* WinScene.sks */; };
 		48A32F40264B89830014F81A /* physicalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A32F3F264B89830014F81A /* physicalConstants.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +45,14 @@
 		3861203C26426B31003BDCF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		485E7D06264903DE006123DD /* MyTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyTileSet.sks; sourceTree = "<group>"; };
 		486716CB265229A700F0D3C3 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		487B9525265E1B7900A238E7 /* skillUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = skillUI.swift; sourceTree = "<group>"; };
+		487B952B265FBD2300A238E7 /* StartScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StartScene.sks; sourceTree = "<group>"; };
+		487B952D265FC69400A238E7 /* StartScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
+		487B952F2663D48B00A238E7 /* Boss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boss.swift; sourceTree = "<group>"; };
+		487B95312664F16700A238E7 /* EndScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndScene.sks; sourceTree = "<group>"; };
+		487B95332664F17800A238E7 /* EndScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScene.swift; sourceTree = "<group>"; };
+		487B95352664FFE900A238E7 /* WinScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinScene.swift; sourceTree = "<group>"; };
+		487B95372665002F00A238E7 /* WinScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WinScene.sks; sourceTree = "<group>"; };
 		48A32F3F264B89830014F81A /* physicalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = physicalConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +100,14 @@
 				485E7D06264903DE006123DD /* MyTileSet.sks */,
 				48A32F3F264B89830014F81A /* physicalConstants.swift */,
 				486716CB265229A700F0D3C3 /* Enemy.swift */,
+				487B9525265E1B7900A238E7 /* skillUI.swift */,
+				487B952B265FBD2300A238E7 /* StartScene.sks */,
+				487B952D265FC69400A238E7 /* StartScene.swift */,
+				487B952F2663D48B00A238E7 /* Boss.swift */,
+				487B95312664F16700A238E7 /* EndScene.sks */,
+				487B95332664F17800A238E7 /* EndScene.swift */,
+				487B95352664FFE900A238E7 /* WinScene.swift */,
+				487B95372665002F00A238E7 /* WinScene.sks */,
 			);
 			path = pj;
 			sourceTree = "<group>";
@@ -146,10 +170,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				487B95322664F16700A238E7 /* EndScene.sks in Resources */,
+				487B952C265FBD2300A238E7 /* StartScene.sks in Resources */,
 				485E7D07264903DE006123DD /* MyTileSet.sks in Resources */,
 				3861203626426B30003BDCF8 /* Main.storyboard in Resources */,
 				3861202D26426B30003BDCF8 /* GameScene.sks in Resources */,
 				3861203826426B31003BDCF8 /* Assets.xcassets in Resources */,
+				487B95382665002F00A238E7 /* WinScene.sks in Resources */,
 				3861203B26426B31003BDCF8 /* LaunchScreen.storyboard in Resources */,
 				3861202F26426B30003BDCF8 /* Actions.sks in Resources */,
 			);
@@ -167,7 +194,12 @@
 				486716CC265229A700F0D3C3 /* Enemy.swift in Sources */,
 				3861203326426B30003BDCF8 /* GameViewController.swift in Sources */,
 				3861202B26426B30003BDCF8 /* AppDelegate.swift in Sources */,
+				487B9526265E1B7900A238E7 /* skillUI.swift in Sources */,
+				487B95342664F17800A238E7 /* EndScene.swift in Sources */,
 				380CB39A26451E98004088B7 /* Player.swift in Sources */,
+				487B952E265FC69400A238E7 /* StartScene.swift in Sources */,
+				487B95362664FFE900A238E7 /* WinScene.swift in Sources */,
+				487B95302663D48B00A238E7 /* Boss.swift in Sources */,
 				380CB398264511C9004088B7 /* JDGamePaddle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
