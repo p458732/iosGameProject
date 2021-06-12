@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		286AF9BE266CED530046BF8D /* op.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 286AF9BD266CED530046BF8D /* op.mp3 */; };
+		286AF9C0266CEE770046BF8D /* died.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 286AF9BF266CEE770046BF8D /* died.mp3 */; };
+		286AF9C2266CEEA20046BF8D /* gunshot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 286AF9C1266CEEA20046BF8D /* gunshot.mp3 */; };
+		286AF9CB266CEEBB0046BF8D /* superstar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 286AF9C3266CEEBB0046BF8D /* superstar.mp3 */; };
+		286AF9CC266CEEBB0046BF8D /* winGame.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 286AF9C4266CEEBB0046BF8D /* winGame.mp3 */; };
+		286AF9CD266CEEBB0046BF8D /* human_died.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 286AF9C5266CEEBB0046BF8D /* human_died.mp3 */; };
+		286AF9CE266CEEBB0046BF8D /* slime_getHurt.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 286AF9C6266CEEBB0046BF8D /* slime_getHurt.mp3 */; };
+		286AF9CF266CEEBB0046BF8D /* ingame.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 286AF9C7266CEEBB0046BF8D /* ingame.mp3 */; };
+		286AF9D0266CEEBB0046BF8D /* loseGame.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 286AF9C8266CEEBB0046BF8D /* loseGame.mp3 */; };
+		286AF9D1266CEEBB0046BF8D /* ingame2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 286AF9C9266CEEBB0046BF8D /* ingame2.mp3 */; };
+		286AF9D2266CEEBB0046BF8D /* human_getHurt.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 286AF9CA266CEEBB0046BF8D /* human_getHurt.mp3 */; };
 		380CB398264511C9004088B7 /* JDGamePaddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380CB397264511C9004088B7 /* JDGamePaddle.swift */; };
 		380CB39A26451E98004088B7 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380CB39926451E98004088B7 /* Player.swift */; };
 		3861202B26426B30003BDCF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3861202A26426B30003BDCF8 /* AppDelegate.swift */; };
@@ -31,6 +42,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		286AF9BD266CED530046BF8D /* op.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = op.mp3; path = ../../../../Downloads/iOS_audioAsset/op.mp3; sourceTree = "<group>"; };
+		286AF9BF266CEE770046BF8D /* died.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = died.mp3; path = ../../../../Downloads/iOS_audioAsset/died.mp3; sourceTree = "<group>"; };
+		286AF9C1266CEEA20046BF8D /* gunshot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = gunshot.mp3; path = ../../../../Downloads/iOS_audioAsset/gunshot.mp3; sourceTree = "<group>"; };
+		286AF9C3266CEEBB0046BF8D /* superstar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = superstar.mp3; path = ../../../../Downloads/iOS_audioAsset/superstar.mp3; sourceTree = "<group>"; };
+		286AF9C4266CEEBB0046BF8D /* winGame.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = winGame.mp3; path = ../../../../Downloads/iOS_audioAsset/winGame.mp3; sourceTree = "<group>"; };
+		286AF9C5266CEEBB0046BF8D /* human_died.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = human_died.mp3; path = ../../../../Downloads/iOS_audioAsset/human_died.mp3; sourceTree = "<group>"; };
+		286AF9C6266CEEBB0046BF8D /* slime_getHurt.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = slime_getHurt.mp3; path = ../../../../Downloads/iOS_audioAsset/slime_getHurt.mp3; sourceTree = "<group>"; };
+		286AF9C7266CEEBB0046BF8D /* ingame.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ingame.mp3; path = ../../../../Downloads/iOS_audioAsset/ingame.mp3; sourceTree = "<group>"; };
+		286AF9C8266CEEBB0046BF8D /* loseGame.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = loseGame.mp3; path = ../../../../Downloads/iOS_audioAsset/loseGame.mp3; sourceTree = "<group>"; };
+		286AF9C9266CEEBB0046BF8D /* ingame2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ingame2.mp3; path = ../../../../Downloads/iOS_audioAsset/ingame2.mp3; sourceTree = "<group>"; };
+		286AF9CA266CEEBB0046BF8D /* human_getHurt.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = human_getHurt.mp3; path = ../../../../Downloads/iOS_audioAsset/human_getHurt.mp3; sourceTree = "<group>"; };
 		380CB397264511C9004088B7 /* JDGamePaddle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JDGamePaddle.swift; sourceTree = "<group>"; };
 		380CB39926451E98004088B7 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		3861202726426B30003BDCF8 /* pj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pj.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +89,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		286AF9BC266CECCA0046BF8D /* AudioAsset */ = {
+			isa = PBXGroup;
+			children = (
+				286AF9C5266CEEBB0046BF8D /* human_died.mp3 */,
+				286AF9CA266CEEBB0046BF8D /* human_getHurt.mp3 */,
+				286AF9C7266CEEBB0046BF8D /* ingame.mp3 */,
+				286AF9C9266CEEBB0046BF8D /* ingame2.mp3 */,
+				286AF9C8266CEEBB0046BF8D /* loseGame.mp3 */,
+				286AF9C6266CEEBB0046BF8D /* slime_getHurt.mp3 */,
+				286AF9C3266CEEBB0046BF8D /* superstar.mp3 */,
+				286AF9C4266CEEBB0046BF8D /* winGame.mp3 */,
+				286AF9C1266CEEA20046BF8D /* gunshot.mp3 */,
+				286AF9BF266CEE770046BF8D /* died.mp3 */,
+				286AF9BD266CED530046BF8D /* op.mp3 */,
+			);
+			path = AudioAsset;
+			sourceTree = "<group>";
+		};
 		3861201E26426B30003BDCF8 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +126,7 @@
 		3861202926426B30003BDCF8 /* pj */ = {
 			isa = PBXGroup;
 			children = (
+				286AF9BC266CECCA0046BF8D /* AudioAsset */,
 				3861202A26426B30003BDCF8 /* AppDelegate.swift */,
 				3861202C26426B30003BDCF8 /* GameScene.sks */,
 				3861202E26426B30003BDCF8 /* Actions.sks */,
@@ -172,13 +213,24 @@
 			files = (
 				487B95322664F16700A238E7 /* EndScene.sks in Resources */,
 				487B952C265FBD2300A238E7 /* StartScene.sks in Resources */,
+				286AF9D1266CEEBB0046BF8D /* ingame2.mp3 in Resources */,
+				286AF9CB266CEEBB0046BF8D /* superstar.mp3 in Resources */,
 				485E7D07264903DE006123DD /* MyTileSet.sks in Resources */,
 				3861203626426B30003BDCF8 /* Main.storyboard in Resources */,
+				286AF9D0266CEEBB0046BF8D /* loseGame.mp3 in Resources */,
 				3861202D26426B30003BDCF8 /* GameScene.sks in Resources */,
+				286AF9BE266CED530046BF8D /* op.mp3 in Resources */,
 				3861203826426B31003BDCF8 /* Assets.xcassets in Resources */,
 				487B95382665002F00A238E7 /* WinScene.sks in Resources */,
+				286AF9CD266CEEBB0046BF8D /* human_died.mp3 in Resources */,
+				286AF9C0266CEE770046BF8D /* died.mp3 in Resources */,
+				286AF9CE266CEEBB0046BF8D /* slime_getHurt.mp3 in Resources */,
+				286AF9D2266CEEBB0046BF8D /* human_getHurt.mp3 in Resources */,
+				286AF9C2266CEEA20046BF8D /* gunshot.mp3 in Resources */,
 				3861203B26426B31003BDCF8 /* LaunchScreen.storyboard in Resources */,
+				286AF9CF266CEEBB0046BF8D /* ingame.mp3 in Resources */,
 				3861202F26426B30003BDCF8 /* Actions.sks in Resources */,
+				286AF9CC266CEEBB0046BF8D /* winGame.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,13 +397,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = EWKZX8YTGG;
+				DEVELOPMENT_TEAM = PF27923YU5;
 				INFOPLIST_FILE = pj/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = mac11.pj;
+				PRODUCT_BUNDLE_IDENTIFIER = mac15game.pj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -363,13 +416,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = EWKZX8YTGG;
+				DEVELOPMENT_TEAM = PF27923YU5;
 				INFOPLIST_FILE = pj/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = mac11.pj;
+				PRODUCT_BUNDLE_IDENTIFIER = mac15game.pj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

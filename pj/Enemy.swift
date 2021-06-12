@@ -20,6 +20,7 @@ class Enemy: SKSpriteNode {
     var hurtFrames = [SKTexture]()
     var playerPOS = CGPoint()
     var gun : Gun!
+    var isDieing = false
     override init(texture:SKTexture?, color:SKColor, size: CGSize){
         let texture = SKTexture(imageNamed: "Idle_idle_0.png")
         super.init(texture:texture, color:SKColor.clear, size: texture.size())
@@ -84,7 +85,11 @@ class Enemy: SKSpriteNode {
         
     }
     func showDeathAtlas(){
-       
+        if isDieing {
+            return
+        }
+        isDieing = true
+        self.gun.removeFromParent()
         self.run(SKAction.animate(with: deathFrames, timePerFrame: 0.2), completion: {() in
             
                 self.removeFromParent()
@@ -123,7 +128,7 @@ class Bullet: SKSpriteNode {
         self.name = "bullet"
         
         self.setScale(CGFloat(0.6))
-        self.physicsBody = SKPhysicsBody(circleOfRadius: 5)
+        self.physicsBody = SKPhysicsBody(circleOfRadius: 3)
         self.physicsBody?.categoryBitMask = bulletCollisionMask
         self.physicsBody?.contactTestBitMask = wallCollisionMask  | playerCollisionMask
         self.physicsBody?.collisionBitMask = playerCollisionMask

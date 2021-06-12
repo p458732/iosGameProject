@@ -12,7 +12,7 @@ import CoreGraphics
 
 class StartScene: SKScene, SKPhysicsContactDelegate{
     var background: SKTileMapNode! //背景瓦片地图节点
-   
+    let startBackgroundSound = SKAudioNode(fileNamed: "op.mp3")
     
     
   
@@ -69,6 +69,8 @@ class StartScene: SKScene, SKPhysicsContactDelegate{
            
    
               let yourNextScene = GameScene(fileNamed: "GameScene")
+            startBackgroundSound.run(SKAction.stop())
+            
               self.view?.presentScene(yourNextScene!)
    
         
@@ -135,10 +137,12 @@ class StartScene: SKScene, SKPhysicsContactDelegate{
         self.EXitbutton.alpha = 0
         addChild(cameraNode)
         addChild(logo)
+        addChild(startBackgroundSound)
+        startBackgroundSound.run(SKAction.play())
         camera = cameraNode
         let zoomInAction = SKAction.scale(to: 0.27, duration: 0)
         let moveAction = SKAction.move(by: CGVector(dx: 20, dy:60), duration: 2)
-       
+        
         cameraNode.run(zoomInAction)
         // cameraNode.run(moveAction)
         

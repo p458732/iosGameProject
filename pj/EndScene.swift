@@ -17,7 +17,8 @@ class EndScene: SKScene, SKPhysicsContactDelegate{
     
   
     var player :Player!
-    
+    let LoseGameBackgroundSound = SKAudioNode(fileNamed: "loseGame.mp3")
+
     var cameraNode: SKCameraNode!
     var playerVector =  CGVector(dx: 0, dy: 0)
     var tileMap: SKTileMapNode? = SKTileMapNode()
@@ -45,7 +46,7 @@ class EndScene: SKScene, SKPhysicsContactDelegate{
          button.position.x = 0
          button.position.y = -40
          self.addChild(button)
-        
+         self.addChild(LoseGameBackgroundSound)
          EXitbutton.name = "btn"
          EXitbutton.size.height = 95
          EXitbutton.size.width = 170
@@ -72,6 +73,7 @@ class EndScene: SKScene, SKPhysicsContactDelegate{
            
    
               let yourNextScene = GameScene(fileNamed: "GameScene")
+            LoseGameBackgroundSound.run(SKAction.stop())
               self.view?.presentScene(yourNextScene!)
    
         

@@ -17,7 +17,7 @@ class WinScene: SKScene, SKPhysicsContactDelegate{
     
   
     var player :Player!
-    
+    let WinGameBackgroundSound = SKAudioNode(fileNamed: "winGame.mp3")
     var cameraNode: SKCameraNode!
     var playerVector =  CGVector(dx: 0, dy: 0)
     var tileMap: SKTileMapNode? = SKTileMapNode()
@@ -46,6 +46,7 @@ class WinScene: SKScene, SKPhysicsContactDelegate{
          button.position.y = -40
          self.addChild(button)
         
+         self.addChild(WinGameBackgroundSound)
          EXitbutton.name = "btn"
          EXitbutton.size.height = 95
          EXitbutton.size.width = 170
@@ -72,6 +73,7 @@ class WinScene: SKScene, SKPhysicsContactDelegate{
            
    
               let yourNextScene = GameScene(fileNamed: "GameScene")
+            WinGameBackgroundSound.run(SKAction.stop())
               self.view?.presentScene(yourNextScene!)
    
         

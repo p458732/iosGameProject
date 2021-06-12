@@ -13,10 +13,10 @@ class Boss: SKSpriteNode {
     //let Player: SKSpriteNode!
     
     let textureAtlas = SKTextureAtlas(named: "Boss_Run.atlas")
-    let UtextureAtlas = SKTextureAtlas(named: "Boss_URun.atlas")
+    let UtextureAtlas = SKTextureAtlas(named: "boss_URun.atlas")
     var runFrames = [SKTexture]()
     var UrunFrames = [SKTexture]()
-    let deathAtlas = SKTextureAtlas(named: "style 1_player death.atlas")
+    let deathAtlas = SKTextureAtlas(named: "Boss_Died.atlas")
     var deathFrames = [SKTexture]()
     var hurtCounter = 0
     var dir = 1
@@ -24,7 +24,7 @@ class Boss: SKSpriteNode {
     var playerPOS = CGPoint()
     var gun : BossGun!
     override init(texture:SKTexture?, color:SKColor, size: CGSize){
-        let texture = SKTexture(imageNamed: "Idle_idle_0.png")
+        let texture = SKTexture(imageNamed: "Astro_Astrounaut Idle_0.png")
         super.init(texture:texture, color:SKColor.clear, size: texture.size())
         
         var tempName: String
@@ -43,21 +43,21 @@ class Boss: SKSpriteNode {
                    UrunFrames.append(dbTexture)
                }
         for i in 0 ... 11 {
-            tempName = String(format: "style 1_player death_%.2d",i)
+            tempName = String(format: "Astro_Astrounaut Death_%.2d",i)
            
             
             let dbTexture = deathAtlas.textureNamed(tempName)
             deathFrames.append(dbTexture)
         }
         for i in 0 ... 3 {
-            tempName = String(format: "style 1_player death_%.2d",i)
+            tempName = String(format: "Astro_Astrounaut Death_%.2d",i)
            
             
             let dbTexture = deathAtlas.textureNamed(tempName)
             hurtFrames.append(dbTexture)
         }
         for i in (0 ... 3).reversed() {
-            tempName = String(format: "style 1_player death_%.2d",i)
+            tempName = String(format: "Astro_Astrounaut Death_%.2d",i)
            
             
             let dbTexture = deathAtlas.textureNamed(tempName)
@@ -101,6 +101,7 @@ class Boss: SKSpriteNode {
     }
     func showDeathAtlas(){
        
+        self.gun.removeFromParent()
         self.run(SKAction.animate(with: deathFrames, timePerFrame: 0.2), completion: {() in
             
                 self.removeFromParent()
