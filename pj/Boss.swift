@@ -22,6 +22,7 @@ class Boss: SKSpriteNode {
     var dir = 1
     var hurtFrames = [SKTexture]()
     var playerPOS = CGPoint()
+    var isDieing = false
     var gun : BossGun!
     override init(texture:SKTexture?, color:SKColor, size: CGSize){
         let texture = SKTexture(imageNamed: "Astro_Astrounaut Idle_0.png")

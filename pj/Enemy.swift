@@ -85,10 +85,7 @@ class Enemy: SKSpriteNode {
         
     }
     func showDeathAtlas(){
-        if isDieing {
-            return
-        }
-        isDieing = true
+        
         self.gun.removeFromParent()
         self.run(SKAction.animate(with: deathFrames, timePerFrame: 0.2), completion: {() in
             

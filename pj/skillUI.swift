@@ -37,7 +37,7 @@ class SkillUI:SKSpriteNode
                self.isUserInteractionEnabled = true
                self.position = CGPoint(x: 0, y: size.height * 0.5 )
                self.tex = texture
-               
+       
              
                
                self.addChild(skillUICircle!)
@@ -65,12 +65,14 @@ class SkillUI:SKSpriteNode
                 self.isUserInteractionEnabled = true
             }]))
             }else if self.name == "star"{
+                
                 skillUICircle?.fillColor = SKColor.init(cgColor: CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 0.5))
                 delegate?.useStar()
                 self.isUserInteractionEnabled = false
                 skillUICircle?.run(SKAction.sequence([ SKAction.wait(forDuration: 5), SKAction.run {
                 self.skillUICircle?.fillColor = SKColor.init(cgColor: CGColor(srgbRed: CGFloat(100.0 / 255.0), green: CGFloat(224.0 / 255.0 ), blue: CGFloat(197.0 / 255.0), alpha: 0.5))
                 self.isUserInteractionEnabled = true
+                
                            }]))
                 
             }
@@ -127,6 +129,7 @@ class Puddle: SKSpriteNode {
         self.physicsBody?.collisionBitMask = wallCollisionMask
         self.physicsBody?.usesPreciseCollisionDetection = true
         self.physicsBody?.affectedByGravity = false
+        
         //test.physicsBody?.isDynamic = false
         showAtlas()
        

@@ -20,6 +20,7 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
     let dieSound = SKAudioNode(fileNamed: "died.mp3")
     let humanGetHurtSound = SKAudioNode(fileNamed: "human_getHurt.mp3")
     let humanDiedSound = SKAudioNode(fileNamed: "human_died.mp3")
+    let starBackgroundSound = SKAudioNode(fileNamed: "superstar.mp3")
     var paddle:JDGamePaddle!
     var skillUICircle: SkillUI!
     var skillUICircle2: SkillUI!
@@ -53,8 +54,10 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
         self.player.physicsBody?.categoryBitMask = starPlayerCollisionMask
         self.player.physicsBody?.contactTestBitMask = 0
         self.player.physicsBody?.collisionBitMask = wallCollisionMask | puddleCollisionMask
+        self.starBackgroundSound.run(SKAction.play())
         player.showStarAtlas()
         player.run(SKAction.sequence([ SKAction.wait(forDuration: 3), SKAction.run {
+            self.starBackgroundSound.run(SKAction.stop())
             self.player.physicsBody?.categoryBitMask = playerCollisionMask
             self.player.physicsBody?.contactTestBitMask = bulletCollisionMask
             self.physicsBody?.collisionBitMask = wallCollisionMask | bulletCollisionMask | puddleCollisionMask
@@ -561,9 +564,12 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
         }
         if contact.bodyA.node?.name == "puddle" && contact.bodyB.node?.name == "enemy"{
             let enemy = contact.bodyB.node! as! Enemy
-            enemy.showHurtAtlas()
-            humanGetHurtSound.run(SKAction.play())
-            if enemy.hurtCounter >= 3 {
+            if !enemy.isDieing{
+                enemy.showHurtAtlas()
+                humanGetHurtSound.run(SKAction.play())
+            }
+            if enemy.hurtCounter >= 3 && !enemy.isDieing{
+                
                 var flag = false
                 for i in self.enemy{
                     if i!.hurtCounter < 3 && i!.name == "enemy"{
@@ -574,16 +580,17 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
                     tpNodes[1]?.showAtlas()
                 }
                 humanDiedSound.run(SKAction.play())
-                
+                enemy.isDieing = true
                 enemy.showDeathAtlas()
                 
             }
         } else if contact.bodyB.node?.name == "puddle" && contact.bodyA.node?.name == "enemy"{
             let enemy = contact.bodyA.node! as! Enemy
-            enemy.showHurtAtlas()
-            humanGetHurtSound.run(SKAction.play())
-            
-            if enemy.hurtCounter >= 3 {
+            if !enemy.isDieing{
+                enemy.showHurtAtlas()
+                humanGetHurtSound.run(SKAction.play())
+            }
+            if enemy.hurtCounter >= 3  && !enemy.isDieing{
                 var flag = false
                 for i in self.enemy{
                     
@@ -595,15 +602,18 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
                     tpNodes[1]?.showAtlas()
                 }
                 humanDiedSound.run(SKAction.play())
+                enemy.isDieing = true
                 enemy.showDeathAtlas()
                 
             }
         }
         if contact.bodyA.node?.name == "puddle" && contact.bodyB.node?.name == "enemy2"{
             let enemy = contact.bodyB.node! as! Enemy
-            enemy.showHurtAtlas()
-            humanGetHurtSound.run(SKAction.play())
-            if enemy.hurtCounter >= 3 {
+            if !enemy.isDieing{
+                enemy.showHurtAtlas()
+                humanGetHurtSound.run(SKAction.play())
+            }
+            if enemy.hurtCounter >= 3  && !enemy.isDieing{
                 var flag = false
                 for i in self.enemy{
                     
@@ -615,16 +625,18 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
                     tpNodes[3]?.showAtlas()
                 }
                 humanDiedSound.run(SKAction.play())
-                
+                enemy.isDieing = true
                 enemy.showDeathAtlas()
                 
             }
         } else if contact.bodyB.node?.name == "puddle" && contact.bodyA.node?.name == "enemy2"{
             let enemy = contact.bodyA.node! as! Enemy
-            enemy.showHurtAtlas()
-            humanGetHurtSound.run(SKAction.play())
+            if !enemy.isDieing{
+                enemy.showHurtAtlas()
+                humanGetHurtSound.run(SKAction.play())
+            }
             
-            if enemy.hurtCounter >= 3 {
+            if enemy.hurtCounter >= 3 && !enemy.isDieing{
                 var flag = false
                 for i in self.enemy{
                     
@@ -636,17 +648,20 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
                     tpNodes[3]?.showAtlas()
                 }
                 humanDiedSound.run(SKAction.play())
+                enemy.isDieing = true
                 enemy.showDeathAtlas()
                 
             }
         }
         if contact.bodyA.node?.name == "puddle" && contact.bodyB.node?.name == "boss"{
             let enemy = contact.bodyB.node! as! Boss
-            enemy.showHurtAtlas()
-            humanGetHurtSound.run(SKAction.play())
+            if !enemy.isDieing{
+                enemy.showHurtAtlas()
+                humanGetHurtSound.run(SKAction.play())
+            }
+                
             
-            
-            if enemy.hurtCounter >= 3 {
+            if enemy.hurtCounter >= 3  && !enemy.isDieing {
                 var flag = true
                 for i in 0...boss.count - 1{
                     if boss[i]!.hurtCounter < 3{
@@ -658,16 +673,19 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
                     self.bossDied = true
                 }
                 humanDiedSound.run(SKAction.play())
+                enemy.isDieing = true
                 enemy.showDeathAtlas()
                 
             }
         } else if contact.bodyB.node?.name == "puddle" && contact.bodyA.node?.name == "boss"{
             let enemy = contact.bodyA.node! as! Boss
-            enemy.showHurtAtlas()
-            humanGetHurtSound.run(SKAction.play())
+            if !enemy.isDieing{
+                enemy.showHurtAtlas()
+                humanGetHurtSound.run(SKAction.play())
+            }
             
             
-            if enemy.hurtCounter >= 3 {
+            if enemy.hurtCounter >= 3 && !enemy.isDieing{
                 var flag = true
                 for i in 0...boss.count - 1{
                     if boss[i]!.hurtCounter < 3{
@@ -679,6 +697,7 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
                     self.bossDied = true
                 }
                 humanDiedSound.run(SKAction.play())
+                enemy.isDieing = true
                 enemy.showDeathAtlas()
                 
             }
@@ -810,12 +829,14 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
         paddle = JDGamePaddle(forScene: self, size:CGSize(width: 30, height: 30), position: CGPoint(x: 8, y: 8))
         paddle.delegate = self
         addChild(InGameBackgroundSound)
+        InBossGameBackgroundSound.autoplayLooped = false
         addChild(InBossGameBackgroundSound)
         slimeGetHurtSound.autoplayLooped = false
         dieSound.autoplayLooped = false
         humanDiedSound.autoplayLooped = false
         humanGetHurtSound.autoplayLooped = false
         gunShotSound.autoplayLooped = false
+        starBackgroundSound.autoplayLooped = false
         addChild(slimeGetHurtSound)
         
         addChild(dieSound)
@@ -888,7 +909,7 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
         cameraNode.position = CGPoint(x: 0, y:0)
         cameraNode.name = "camara"
         addChild(player)
-        
+        addChild(starBackgroundSound)
         addChild(cameraNode)
         camera = cameraNode
         let zoomInAction = SKAction.scale(to: 0.27, duration: 0)
