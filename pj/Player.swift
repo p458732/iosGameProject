@@ -20,6 +20,7 @@ class Player: SKSpriteNode {
     var dieTxtureFrames = [SKTexture]()
     var hurtTxtureFrames = [SKTexture]()
     var isYellow = false
+    var isDieing = false 
     override init(texture:SKTexture?, color:SKColor, size: CGSize){
         let texture = SKTexture(imageNamed: "slime move_blob_00.png")
         super.init(texture:texture, color:SKColor.clear, size: texture.size())

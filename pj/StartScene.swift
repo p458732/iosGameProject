@@ -70,7 +70,7 @@ class StartScene: SKScene, SKPhysicsContactDelegate{
    
               let yourNextScene = GameScene(fileNamed: "GameScene")
             startBackgroundSound.run(SKAction.stop())
-            
+                yourNextScene!.scaleMode = .aspectFill
               self.view?.presentScene(yourNextScene!)
    
         
@@ -138,6 +138,7 @@ class StartScene: SKScene, SKPhysicsContactDelegate{
         addChild(cameraNode)
         addChild(logo)
         addChild(startBackgroundSound)
+        startBackgroundSound.run(SKAction.changeVolume(to: 15, duration: 0))
         startBackgroundSound.run(SKAction.play())
         camera = cameraNode
         let zoomInAction = SKAction.scale(to: 0.27, duration: 0)

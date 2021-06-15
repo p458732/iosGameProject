@@ -125,7 +125,7 @@ class Boss: SKSpriteNode {
 class BossGun: SKSpriteNode{
        
     override init(texture:SKTexture?, color: SKColor, size:CGSize){
-        let texture = SKTexture(imageNamed: "main gun_Gun_0.png")
+        let texture = SKTexture(imageNamed: "gun_Gun_0.png")
         super.init(texture:texture, color: SKColor.clear, size: texture.size())
         self.zPosition = -1
     }
@@ -136,7 +136,7 @@ class BossGun: SKSpriteNode{
 
 class BossBullet: SKSpriteNode {
     override init (texture: SKTexture?, color: SKColor, size:CGSize){
-        let texture = SKTexture(imageNamed: "bullet_projectile_0.png")
+        let texture = SKTexture(imageNamed: "bullet.png")
          super.init(texture:texture, color: SKColor.clear, size: texture.size())
         self.name = "BossBullet"
         

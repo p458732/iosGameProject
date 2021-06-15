@@ -74,6 +74,8 @@ class EndScene: SKScene, SKPhysicsContactDelegate{
    
               let yourNextScene = GameScene(fileNamed: "GameScene")
             LoseGameBackgroundSound.run(SKAction.stop())
+            
+            yourNextScene?.scaleMode = .aspectFill
               self.view?.presentScene(yourNextScene!)
    
         

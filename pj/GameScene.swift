@@ -24,7 +24,7 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
     var paddle:JDGamePaddle!
     var skillUICircle: SkillUI!
     var skillUICircle2: SkillUI!
-    var hpBar: SKProgressBar = SKProgressBar()
+    var hpBar: HpBarNode = HpBarNode()
     var player :Player!
     var enemy : [Enemy?] = []
     var boss :[Boss?] = []
@@ -42,7 +42,7 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
         puddle.position.x = player.getPOS().x
         puddle.position.y = player.getPOS().y
         addChild(puddle)
-        if (self.hpBar.setProgress(0.1)){
+        if (self.hpBar.setProgress(1)){
             player.xScale = player.xScale - 0.01
             player.yScale = player.yScale - 0.01
             player.showHurtAtlas()
@@ -67,29 +67,44 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
         
     }
     func moveWithCamara(){
-        self.camera?.run(SKAction.move(to: CGPoint(x: player.getPOS().x, y: 0) ,duration: 0.06))
+        if(player.getPOS().x > -85 && player.getPOS().x < 470 ){
+            self.camera?.run(SKAction.move(to: CGPoint(x: player.getPOS().x, y: 0) ,duration: 0.06))
+       
         self.hpBar.setPos(pos: CGPoint(x: player.getPOS().x - 55 , y: 40) )
         paddle.paddle.setPos(pos: CGPoint(x: player.getPOS().x - 80 , y: -20) )
         skillUICircle.setPos(pos: CGPoint(x: player.getPOS().x + 50 , y: -30) )
         skillUICircle2.setPos(pos: CGPoint(x: player.getPOS().x + 73 , y: -15))
+        }
     }
     func moveWithCamara1(){
-        self.camera?.run(SKAction.move(to: CGPoint(x: player.getPOS().x, y: 160) ,duration: 0.06))
-        self.hpBar.setPos(pos: CGPoint(x: player.getPOS().x - 55 , y: 200) )
-        paddle.paddle.setPos(pos: CGPoint(x: player.getPOS().x - 80 , y: 140) )
-        skillUICircle.setPos(pos: CGPoint(x: player.getPOS().x + 50 , y: 130) )
-        skillUICircle2.setPos(pos: CGPoint(x: player.getPOS().x + 73 , y: 145))
+        
+        self.camera?.run(SKAction.move(to: CGPoint(x: -20, y: 160) ,duration: 0.06))
+        self.hpBar.setPos(pos: CGPoint(x: -20 - 55 , y: 200) )
+        paddle.paddle.setPos(pos: CGPoint(x: -20 - 80 , y: 140) )
+        skillUICircle.setPos(pos: CGPoint(x: -20 + 50 , y: 130) )
+        skillUICircle2.setPos(pos: CGPoint(x: -20 + 73 , y: 145))
+        let zoomInAction = SKAction.scale(to: 0.27, duration: 0)
+       
+        
+        cameraNode.run(zoomInAction)
+        
     }
     func moveWithCamara2(){
+        if(player.getPOS().x > 318 && player.getPOS().x < 495 ){
+
         self.camera?.run(SKAction.move(to: CGPoint(x: player.getPOS().x, y: 150) ,duration: 0.06))
         self.hpBar.setPos(pos: CGPoint(x: player.getPOS().x - 55 , y: 190) )
         paddle.paddle.setPos(pos: CGPoint(x: player.getPOS().x - 80 , y: 130) )
         skillUICircle.setPos(pos: CGPoint(x: player.getPOS().x + 50 , y: 120) )
         skillUICircle2.setPos(pos: CGPoint(x: player.getPOS().x + 73 , y: 135))
+            
+        }
     }
     var vec : CGVector = CGVector()
     func getVector(vector: CGVector) {
-        
+        if player.isDieing {
+            return
+        }
         player.moveBy(vector: CGVector(dx: vector.dx / 2 , dy: vector.dy / 2) )
         if(vector.dx.isNaN || vector.dy.isNaN){
             let moveAction = SKAction.move(by: CGVector(dx: 0, dy: 0), duration: 0)
@@ -217,6 +232,9 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
         }
     }
     func keepMove(){
+        if player.isDieing {
+            return
+        }
         player.moveBy(vector: CGVector(dx: vec.dx , dy: vec.dy))
         if(vec.dx.isNaN || vec.dy.isNaN){
             let moveAction = SKAction.move(by: CGVector(dx: 0, dy: 0), duration: 0)
@@ -363,17 +381,21 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
             tempBoss.position.x = player.getPOS().x + 20
             tempBoss.position.y = player.getPOS().y - 10
             
-            if (self.hpBar.setProgress(0.2)){
+            if (self.hpBar.setProgress(2)){
                 player.xScale = player.xScale - 0.01
                 player.yScale = player.yScale - 0.01
                 player.showHurtAtlas()
+                slimeGetHurtSound.run(SKAction.changeVolume(to: 5, duration: 0))
                 slimeGetHurtSound.run(SKAction.play())
                 
             }else{
                 player.physicsBody = SKPhysicsBody()
                 player.physicsBody?.affectedByGravity = false
                 self.paddle.delegate = nil
+                player.isDieing = true
                 player.run(SKAction.sequence( [SKAction.animate(with: player.dieTxtureFrames , timePerFrame: 0.2), SKAction.run {
+                    self.dieSound.run(SKAction.changeVolume(to: 5, duration: 0))
+            
                     self.dieSound.run(SKAction.play())
                     self.view?.presentScene(GameScene(fileNamed: "EndScene"))
                 }    ] ))
@@ -394,16 +416,19 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
             tempBoss.position.x = player.getPOS().x + 20
             tempBoss.position.y = player.getPOS().y - 10
             
-            if (self.hpBar.setProgress(0.2)){
+            if (self.hpBar.setProgress(2)){
                 player.xScale = player.xScale - 0.01
                 player.yScale = player.yScale - 0.01
                 player.showHurtAtlas()
+                slimeGetHurtSound.run(SKAction.changeVolume(to: 5, duration: 0))
                 slimeGetHurtSound.run(SKAction.play())
             }else{
                 player.physicsBody = SKPhysicsBody()
                 player.physicsBody?.affectedByGravity = false
                 self.paddle.delegate = nil
+                player.isDieing = true
                 player.run(SKAction.sequence( [SKAction.animate(with: player.dieTxtureFrames , timePerFrame: 0.2), SKAction.run {
+                    self.dieSound.run(SKAction.changeVolume(to: 5, duration: 0))
                     self.dieSound.run(SKAction.play())
                     self.view?.presentScene(GameScene(fileNamed: "EndScene"))
                 }    ] ))
@@ -451,6 +476,7 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
                 return
             }
             player.run(SKAction.move(to: CGPoint(x: -20, y: 140), duration: 0))
+            
             status = 1
             moveWithCamara1()
             // contact.bodyA.node?.removeFromParent()
@@ -469,11 +495,12 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
             if !door.isOpened {
                 return
             }
-            player.run(SKAction.move(to: CGPoint(x: 250, y: 150), duration: 0))
+            player.run(SKAction.move(to: CGPoint(x: 400, y: 120), duration: 0))
             status = 2
             moveWithCamara1()
             inBossRoom = true
             InGameBackgroundSound.run(SKAction.stop())
+            InBossGameBackgroundSound.run(SKAction.changeVolume(to: 10, duration: 0))
             InBossGameBackgroundSound.run(SKAction.play())
             
             contact.bodyA.node?.removeFromParent()
@@ -482,11 +509,12 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
             if !door.isOpened {
                 return
             }
-            player.run(SKAction.move(to: CGPoint(x: 250, y: 150), duration: 0))
+            player.run(SKAction.move(to: CGPoint(x: 400, y: 120), duration: 0))
             status = 2
             moveWithCamara1()
             inBossRoom = true
             InGameBackgroundSound.run(SKAction.stop())
+            InBossGameBackgroundSound.run(SKAction.changeVolume(to: 10, duration: 0))
             InBossGameBackgroundSound.run(SKAction.play())
             contact.bodyB.node?.removeFromParent()
         }
@@ -511,11 +539,12 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
             if !door.isOpened {
                 return
             }
-            player.run(SKAction.move(to: CGPoint(x: 250, y: 150), duration: 0))
+            player.run(SKAction.move(to: CGPoint(x: 250, y: 120), duration: 0))
             status = 2
             moveWithCamara1()
             inBossRoom = true
             InGameBackgroundSound.run(SKAction.stop())
+            InBossGameBackgroundSound.run(SKAction.changeVolume(to: 15, duration: 0))
             InBossGameBackgroundSound.run(SKAction.play())
             
             contact.bodyA.node?.removeFromParent()
@@ -524,11 +553,12 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
             if !door.isOpened {
                 return
             }
-            player.run(SKAction.move(to: CGPoint(x: 250, y: 150), duration: 0))
+            player.run(SKAction.move(to: CGPoint(x: 250, y: 120), duration: 0))
             status = 2
             moveWithCamara1()
             inBossRoom = true
             InGameBackgroundSound.run(SKAction.stop())
+            InBossGameBackgroundSound.run(SKAction.changeVolume(to: 15, duration: 0))
             InBossGameBackgroundSound.run(SKAction.play())
             contact.bodyB.node?.removeFromParent()
         }
@@ -708,7 +738,7 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
                 player.xScale = player.xScale + 0.005
                 player.yScale = player.yScale + 0.005
                 contact.bodyA.node?.removeFromParent()
-                self.hpBar.setProgress(-0.05)
+                self.hpBar.setProgress(-1)
             }else{
                 puddle.counter += 1
             }
@@ -720,7 +750,7 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
                 player.xScale = player.xScale + 0.005
                 player.yScale = player.yScale + 0.005
                 contact.bodyB.node?.removeFromParent()
-                self.hpBar.setProgress(-0.05)
+                self.hpBar.setProgress(-1)
             }else{
                 puddle.counter += 1
             }
@@ -729,9 +759,10 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
             contact.bodyA.node?.removeFromParent()
             
             
-            if (self.hpBar.setProgress(0.1)){
+            if (self.hpBar.setProgress(1)){
                 player.xScale = player.xScale - 0.01
                 player.yScale = player.yScale - 0.01
+                slimeGetHurtSound.run(SKAction.changeVolume(to: 5, duration: 0))
                 slimeGetHurtSound.run(SKAction.play())
                 
                 player.showHurtAtlas()
@@ -739,6 +770,8 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
                 player.physicsBody = SKPhysicsBody()
                 player.physicsBody?.affectedByGravity = false
                 self.paddle.delegate = nil
+                player.isDieing = true
+                self.dieSound.run(SKAction.changeVolume(to: 5, duration: 0))
                 self.dieSound.run(SKAction.play())
                 
                 player.run(SKAction.sequence( [SKAction.animate(with: player.dieTxtureFrames , timePerFrame: 0.2), SKAction.run {
@@ -750,15 +783,18 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
         } else if contact.bodyB.node?.name == "bullet" && contact.bodyA.node?.name == "player"{
             contact.bodyB.node?.removeFromParent()
             
-            if (self.hpBar.setProgress(0.1)){
+            if (self.hpBar.setProgress(1)){
                 player.xScale = player.xScale - 0.01
                 player.yScale = player.yScale - 0.01
+                slimeGetHurtSound.run(SKAction.changeVolume(to: 5, duration: 0))
                 slimeGetHurtSound.run(SKAction.play())
                 
                 player.showHurtAtlas()
             }
             else{
                 player.physicsBody = SKPhysicsBody()
+                player.isDieing = true
+                self.dieSound.run(SKAction.changeVolume(to: 5, duration: 0))
                 self.dieSound.run(SKAction.play())
                 
                 
@@ -846,7 +882,9 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
         self.InGameBackgroundSound.run(SKAction.play())
         let texture = SKTexture(imageNamed: "lab anims_green puddle_00.png")
         skillUICircle = SkillUI(texture:  texture, size: CGSize(width: 30, height: 30))
-        skillUICircle2 = SkillUI(texture:   SKTexture(imageNamed: "slime skill_blob_01.png"),size: CGSize(width: 30, height: 30))
+        let tttt = SKTexture(imageNamed: "marioStar.png")
+        
+        skillUICircle2 = SkillUI(texture:   SKTexture(imageNamed: "marioStar.png"),size: CGSize(width: 10, height: 10))
         skillUICircle.delegate = self
         skillUICircle2.delegate = self
         player = Player()
@@ -878,7 +916,7 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
         tpNode3.position.y = 193.2
         tpNode3.name = "tpNode4"
         let tpNode4 = TeleportNode()
-        tpNode4.position.x = 630
+        tpNode4.position.x = 520
         tpNode4.position.y = 29.5
         tpNode4.name = "tpNode5"
         tpNode4.showAtlas()
@@ -898,9 +936,9 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
         tpNodes.append(tpNode4)
         tpNodes.append(tpNode5)
        
-        for i in 0...3 {
+        for i in 0...2 {
             let temp = Enemy()
-            temp.position = CGPoint(x: 100*i, y: 5*i)
+            temp.position = CGPoint(x: 70*i, y: 7*i)
             enemy.append(temp)
             addChild(temp)
         }
@@ -921,17 +959,20 @@ class GameScene: SKScene, JDPaddleVectorDelegate , SKPhysicsContactDelegate,  Sk
         player.moveBy(vector: playerVector)
         Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(newBullet), userInfo: nil, repeats: true)
         Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(newBossBullet), userInfo: nil, repeats: true)
-        self.hpBar = SKProgressBar.init(baseColor: SKColor(displayP3Red: CGFloat(219.0 / 255.0), green: CGFloat(211.0 / 255.0), blue: CGFloat(193.0 / 255.0 ), alpha: 1), coverColor: SKColor(displayP3Red: CGFloat(64.0 / 255.0), green: CGFloat(213.0 / 255.0), blue: CGFloat(89.0 / 255.0 ), alpha: 1), size: CGSize(width:80,height:5))
+        self.hpBar = HpBarNode.init()
         
         
         self.addChild(hpBar)
+        
         self.addChild(skillUICircle)
+        
         skillUICircle.name = "puddle"
         skillUICircle2.name = "star"
         self.addChild(skillUICircle2)
         createScene1()
         player.position.x = -80
         self.hpBar.position.x = 50
+    
     }
     func createScene1() {
         
@@ -1012,6 +1053,82 @@ class SKProgressBar: SKNode {
     func setPos(pos:CGPoint){
         self.run(SKAction.move(to: pos, duration: 0.06))
         self.zPosition = 88
+    }
+}
+
+class HpBarTempNode: SKSpriteNode {
+    
+   
+   
+    override init(texture:SKTexture?, color:SKColor, size: CGSize){
+        let texture = SKTexture(imageNamed: "hpbarTemp.png")
+        super.init(texture: texture, color:SKColor.clear, size: texture.size())
+        
+        
+       
+        
+        
+    }
+    func setPos(pos:CGPoint){
+        self.run(SKAction.move(to: pos, duration: 0.06))
+        self.zPosition = 88
+    }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init has not been implemented")
+    }
+    func setProgress(_ value:CGFloat) -> Bool{
+       return true
+        
+    }
+}
+
+class HpBarNode: SKSpriteNode {
+    
+    var hpVal :Int = 10
+    var hpBarNodes :[SKSpriteNode] = []
+   
+    override init(texture:SKTexture?, color:SKColor, size: CGSize){
+        let texture = SKTexture(imageNamed: "test.png")
+        super.init(texture: texture, color:SKColor.clear, size: texture.size())
+        for i in (0...9){
+            let temp = HpBarTempNode()
+            temp.position.x = CGFloat(-27 + 6 * i)
+            temp.isHidden = false
+            hpBarNodes.append(temp)
+            self.addChild(temp)
+        }
+        
+       
+        
+        
+    }
+    func setPos(pos:CGPoint){
+        self.run(SKAction.move(to: pos, duration: 0.06))
+        self.zPosition = 88
+    }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init has not been implemented")
+    }
+    func setProgress(_ value:Int) -> Bool{
+        hpVal = hpVal - value
+        if hpVal <= 0 {
+            for i in (0 ... 9){
+                hpBarNodes[i].isHidden = true
+            }
+            return false
+        }else{
+            for i in (0 ... hpVal - 1){
+                hpBarNodes[i].isHidden = false
+            }
+            if hpVal != 10{
+                for i in (hpVal ... 9){
+                    hpBarNodes[i].isHidden = true
+                }
+            }
+            
+        }
+       return true
+        
     }
 }
 

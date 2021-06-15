@@ -73,6 +73,7 @@ class WinScene: SKScene, SKPhysicsContactDelegate{
            
    
               let yourNextScene = GameScene(fileNamed: "GameScene")
+            yourNextScene?.scaleMode = .aspectFill
             WinGameBackgroundSound.run(SKAction.stop())
               self.view?.presentScene(yourNextScene!)
    
